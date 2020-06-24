@@ -1,4 +1,11 @@
 # COVID19_SouthKorea
+
+# Project Goals
+## Phase 1 Data Visualization
+## Phase 2 Spatio-temopral analysis
+using hhh4 model to analyze aggregated counts data from Korea CDC daily reports of new cases of COVID-19 
+
+
 # Data Resources
 KOSIS http://kosis.kr/eng/
 
