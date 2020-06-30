@@ -10,7 +10,7 @@ Extracting testing data and aggregated case counts from KCDC website. Now I have
 ## Phase 1 Data Visualization
 Using sp and surveillance packages to construct a webpage to present the changes in reported COVID-19 cases across provinces and cities. Key public health policy changes will also be noted on the plots. The goal is to identify any unsual pattern associated with potential spatial, temporal, policy and other variables of interest so a hypothesis can be formed before entering the analysis stage. 
 
-## Phase 2 Spatio-temopral analysis
+## Phase 2 Spatio-temporal analysis
 Using hhh4 model to analyze aggregated counts data from Korea CDC daily reports of new cases of COVID-19. In this stage I will test and estimate the effects of spatial, temporal or policy variables. Different models (other than hhh4) might also be used depending on the need of the project. 
 
 ## Phase 3 Prediction 
