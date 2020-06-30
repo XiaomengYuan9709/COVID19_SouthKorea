@@ -4,7 +4,7 @@
 Since the begining of COVID-19 outbreak in Jan, 2020, South Korea have put huge effort in containing the spread of the disease by deploying fast PCR testing and case tracing technology. Those public health policys have helped tremendously in reducing the daily new cases to a relatively low and stable level by mid April without having any lockdown enforced. 
 The goal of this project is to identify the roles of spatio-temporal effects, and the effects of public health policies on the epidemic of COVID-19 in South Korea across different provinces and cities. The plan of the project includes phase 0 to 3 as illustrated below. 
 
-## phase 0 Data Collection
+## Phase 0 Data Collection
 Extracting testing data and aggregated case counts from KCDC website. Now I have collected the data from Jan.30 to April.20.
 
 ## Phase 1 Data Visualization
