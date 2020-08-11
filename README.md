@@ -28,4 +28,4 @@ Applied Spatial Data Analysis with R https://ebookcentral.proquest.com/lib/ufl/r
 
 SpatialPolygonsDataFrame https://rdrr.io/cran/sp/man/SpatialPolygonsDataFrame-class.html
 
-Applied Spatial Data Analysis with R https://ebookcentral.proquest.com/lib/ufl/detail.action?docID=1317550
+surveillance https://sites.google.com/site/therepiproject/r-pac/surveillance
