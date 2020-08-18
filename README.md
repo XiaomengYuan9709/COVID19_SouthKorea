@@ -25,6 +25,7 @@ KCDC  https://www.cdc.go.kr/board/board.es?mid=a30402000000&bid=0030
 
 # Method Resources
 Applied Spatial Data Analysis with R https://ebookcentral.proquest.com/lib/ufl/reader.action?docID=1317550
+                                    https://asdar-book.org
 
 SpatialPolygonsDataFrame https://rdrr.io/cran/sp/man/SpatialPolygonsDataFrame-class.html
 
