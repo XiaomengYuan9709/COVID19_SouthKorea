@@ -1,4 +1,5 @@
 library(ggplot2)
+library(tidyr)
 
 #"total" in excel is "subtotal" under comfirmed cases = discharged + isolated + deceased 
 # for e.g: subtotal = 427 in table 1 and 2 https://www.cdc.go.kr/board/board.es?mid=a30402000000&bid=0030 
@@ -36,11 +37,14 @@ row.names(data2) <- 1:1020
 
 # create a column to represent difference between row i and i-1
 data2$diff <- c(NA, diff(data2$total))
+
 # check if new (newly confirmed) is equal to diff in total
 dv <- which(data2$new!= data2$diff)
 dv # rows where new != diff, a few cases 
 # [1]   5   6  69 190 191 219 245 249 250 305 425 485 486 491 785 786 905 906
-# check these rows (not verified yet as of 08-25-2020)
+# check these rows 
+# not verified yet as of 08-25-2020, it needs to check 6 notices on KCDC for each occasion 
+# consider use column diff for sensitivity test
 dr <- data2[dv, ]
 
 
@@ -69,3 +73,9 @@ nd
 summary(data2$new)
 summary(data2$total)
 which(is.na(data2$total)) #every location missing 2-21 to 2-23
+
+###### create t*i maxtrix for sts object
+data3<-data2[ ,c(2,3,6)]
+obs <- spread(data3, location, new)
+
+plot(data3)
