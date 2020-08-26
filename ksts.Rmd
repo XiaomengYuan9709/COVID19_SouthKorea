@@ -1,0 +1,88 @@
+---
+title: "ksts"
+author: "Xiaomeng Yuan"
+date: "8/26/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(surveillance)
+library(animation)
+```
+
+```{r}
+row.names(kmap2)
+kmap2@data[["NAME_1"]]
+```
+create observed matrix
+```{r}
+observed <- obs1[ , 2:18]
+summary(observed)
+colnames(observed)
+
+kobserved <- observed[, c(1, 2, 3, 4, 5, 6, 7, 10, 8, 9, 11, 12, 13, 14, 15, 16, 17)]
+colnames(kobserved)
+
+kobs <- kobserved
+colnames(kobs)<- c(0:16)
+
+# create a matrix with all -1 replaced with 0
+kobs1 <- replace(kobs, kobs==-1, 0)
+```
+
+
+
+create a t*i population matrix
+```{r}
+pdata <-t(pdata)
+prow <- as.numeric(pdata[2,])
+pmatrix <- matrix(rep(prow, each = 60), nrow = 60)
+pdata[1,]
+colnames(pmatrix)
+```
+
+
+```{r}
+ksts <- sts(observed=kobs, start=c(2020,1), frequency = 60, neighbourhood=korder, map=kmap2, population=pmatrix)
+
+# one useful error message when I first attemp to construct a sts object: Error in validObject(.Object) : invalid class “sts” object: 1: 'map' is incomplete; ensure that all(colnames(observed) %in% row.names(map)) invalid class “sts” object: 2: 'colnames(neighbourhood)' differ from 'colnames(observed)'
+
+# create a sts object with all -1 observation replaced by 0
+ksts1 <- sts(observed=kobs1, start=c(2020,1), frequency = 60, neighbourhood=korder, map=kmap2, population=pmatrix)
+```
+
+Plot daily new cases 
+```{r}
+plot(ksts, type = observed ~ time)
+```
+
+plot incidence per 100000 people
+```{r}
+tpop <- sum(prow) # total population in the country
+#tpop
+
+plot(ksts, type = observed ~ unit,
+population = tpop/100000, 
+labels = list(font = 2), colorkey = list(space = "right"), sp.layout = layout.scalebar(ksts@map,
+corner = c(0.05, 0.05), scale = 50, labels = c("0", "50 km"), height = 0.03))
+# not sure if the 0-50 km scale is right
+```
+
+```{r}
+plot(ksts, units = which(colSums(observed(ksts)) > 0))
+```
+
+```{r}
+animation::saveHTML(
+animate(ksts, tps = 1:60, total.args = list()),
+title = paste("Evolution of the COVID-19 epidemic in the South Korea",
+"region, 2020"), ani.width = 500, ani.height = 600)
+
+# somehow this animate() function cannot deal with observations = -1, it worked after I replaced all -1 to 0 in the obervation matrix. 
+animation::saveHTML(
+animate(ksts1, tps = 1:60, total.args = list()),
+title = paste("Evolution of the COVID-19 epidemic in the South Korea",
+"region, 2020"), ani.width = 500, ani.height = 600)
+```
+

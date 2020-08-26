@@ -43,7 +43,8 @@ dv <- which(data2$new!= data2$diff)
 dv # rows where new != diff, a few cases 
 # [1]   5   6  69 190 191 219 245 249 250 305 425 485 486 491 785 786 905 906
 # check these rows 
-# not verified yet as of 08-25-2020, it needs to check 6 notices on KCDC for each occasion 
+# not verified w/ KCDC website yet as of 08-25-2020, 
+# it needs to check 6 notices (3 notices * 2 days) on KCDC for each occasion 
 # consider use column diff for sensitivity test
 dr <- data2[dv, ]
 
@@ -63,19 +64,24 @@ nd <-which(diff(data2$total)<0)
 nd
 # [1]  13  17 249 258 297 304 374 785 793
 # the above 9 rows were checked and found to be conformed with original data source on KCDC
-# For one row listed above (17): from 2020-03-09, we can see total decreased to 96,
-# check CDC website we found this note:
-#" *There was one deceased case in Busan, 
-# but the local government in charge of the case changed from Busan to Gyeongbuk."
-# on (https://www.cdc.go.kr/board/board.es?mid=a30402000000&bid=0030&act=view&list_no=366490&tag=&nPage=33)
+# so those days w/ new <0 are inherent errors from the original data source
+# for one row listed above (17) from 2020-03-09 in Busan, 
+# we can see total decreased to 96 from 97,
+# check CDC website we found this note: "There was one deceased case in Busan, 
+# but the local government in charge of the case changed from Busan to Gyeongbuk"
+# (https://www.cdc.go.kr/board/board.es?mid=a30402000000&bid=0030&act=view&list_no=366490&tag=&nPage=33)
+# This kind of mistake affects the day the mistake taken place 
+# and the day it was corrected but dose NOT affect days in-between
+# since we don't know when is the day the mistake happen, it won't be able to be corrected.
+
 
 ####### Check for NA
 summary(data2$new)
 summary(data2$total)
-which(is.na(data2$total)) #every location missing 2-21 to 2-23
+kna <- which(is.na(data2$total)) #every location missing 2-21 to 2-23
 
 ###### create t*i maxtrix for sts object
 data3<-data2[ ,c(2,3,6)]
-obs <- spread(data3, location, new)
+obs1 <- spread(data3, location, new)
+saveRDS(obs1, file="obs1.RDS" )
 
-plot(data3)
