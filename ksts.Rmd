@@ -86,3 +86,7 @@ title = paste("Evolution of the COVID-19 epidemic in the South Korea",
 "region, 2020"), ani.width = 500, ani.height = 600)
 ```
 
+```{r}
+
+```
+
