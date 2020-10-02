@@ -30,3 +30,7 @@ Applied Spatial Data Analysis with R https://ebookcentral.proquest.com/lib/ufl/r
 SpatialPolygonsDataFrame https://rdrr.io/cran/sp/man/SpatialPolygonsDataFrame-class.html
 
 surveillance https://sites.google.com/site/therepiproject/r-pac/surveillance
+
+INLA https://becarioprecario.bitbucket.io/inla-gitbook/index.html
+
+GMRF http://www.math.chalmers.se/~bodavid/GMRF2015/
