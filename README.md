@@ -33,4 +33,7 @@ surveillance https://sites.google.com/site/therepiproject/r-pac/surveillance
 
 INLA https://becarioprecario.bitbucket.io/inla-gitbook/index.html
 
+Spatial and spatio-temporal Bayesian models with R-INLA / by Marta Blangiardo and Michela Cameletti.
+https://ebookcentral.proquest.com/lib/ufl/reader.action?docID=2006109
+
 GMRF http://www.math.chalmers.se/~bodavid/GMRF2015/
