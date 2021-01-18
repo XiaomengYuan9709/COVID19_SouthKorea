@@ -36,4 +36,7 @@ INLA https://becarioprecario.bitbucket.io/inla-gitbook/index.html
 Spatial and spatio-temporal Bayesian models with R-INLA / by Marta Blangiardo and Michela Cameletti.
 https://ebookcentral.proquest.com/lib/ufl/reader.action?docID=2006109
 
+Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny
+https://www.paulamoraga.com/book-geospatial/
+
 GMRF http://www.math.chalmers.se/~bodavid/GMRF2015/
